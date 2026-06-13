@@ -1,2 +1,1 @@
-# KaffeLoggTDD
-Blockchain Kaffelogg - TDD Projekt
+# Blockchain Kaffelogg - TDD Projekt
