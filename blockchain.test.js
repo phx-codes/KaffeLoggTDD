@@ -38,3 +38,19 @@ describe('Blockchain enhetstester', () => {
   });
 });
 
+test('Blockchain ska kunna lägga till en ny transaktion i pendingTransactions', () => {
+  const btc = new Blockchain();
+  
+  const tx = {
+    sender: "Kalle",
+    recipient: "Lisa",
+    batchId: "Kaffe-123",
+    weightKg: 50
+  };
+
+  btc.addTransaction(tx);
+
+  expect(btc.pendingTransactions.length).toBe(1);
+  expect(btc.pendingTransactions[0].sender).toBe("Kalle");
+});
+
