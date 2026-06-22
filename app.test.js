@@ -31,5 +31,26 @@ describe('Express API Integrationstester', () => {
     expect(res.status).toBe(201);
     expect(res.body.message).toBe('Transaction added successfully');
   });
+
+
+  test('POST /transactions ska returnera 400 om fält saknas', async () => {
+    const badTx = { sender: "Göran" };
+
+    const res = await request(app)
+      .post('/transactions')
+      .send(badTx);
+
+    expect(res.status).toBe(400);
+    expect(res.body).toHaveProperty('error');
+  });
+
+
+  test('POST /mine ska lyckas mine:a ett block', async () => {
+    const res = await request(app).post('/mine');
+
+    expect(res.status).toBe(200);
+    expect(res.body.message).toBe('Block successfully mined!');
+    expect(res.body).toHaveProperty('block');
+  });
   
 });
