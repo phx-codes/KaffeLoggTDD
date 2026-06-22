@@ -1,5 +1,5 @@
 import { describe, test, expect } from 'vitest';
-import { calculateHash } from './blockchain.js';
+import { calculateHash, mineBlock, Blockchain } from './blockchain.js';
 
 describe('Blockchain enhetstester', () => {
 
@@ -30,7 +30,7 @@ describe('Blockchain enhetstester', () => {
 
     const difficulty = 1;
 
-    const mindBlock = mineBlock(unminedBlock, difficulty);
+    const minedBlock = mineBlock(unminedBlock, difficulty);
 
     expect(minedBlock.hash.startsWith("0")).toBe(true);
 
