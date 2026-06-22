@@ -18,4 +18,23 @@ describe('Blockchain enhetstester', () => {
     expect(typeof result).toBe('string');
     expect(result.length).toBe(64); 
   });
+
+  test("mineBlock ska ta block och ge tillbaks block där hashen börjar med rätt summa nollor", () => {
+    
+    const unminedBlock = {
+      index: 2,
+      timestamp: 1718294400000,
+      transactions: [],
+      previousHash: "00000def"
+    };
+
+    const difficulty = 1;
+
+    const mindBlock = mineBlock(unminedBlock, difficulty);
+
+    expect(minedBlock.hash.startsWith("0")).toBe(true);
+
+    expect(minedBlock.nonce).toBeGreaterThan(0);
+  });
 });
+
