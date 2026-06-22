@@ -54,3 +54,5 @@ test('Blockchain ska kunna lägga till en ny transaktion i pendingTransactions',
   expect(btc.pendingTransactions[0].sender).toBe("Kalle");
 });
 
+
+
